@@ -1,0 +1,18 @@
+:root {
+  --bg-color: #f5f0f0;
+  --f-main-color: black;
+  --f-second-color: #FF893A;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #151515;
+    --f-main-color: white;
+  }
+}
+
+body {
+  margin: 0px;
+  color: var(--f-main-color);
+}
+
