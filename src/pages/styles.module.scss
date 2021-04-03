@@ -33,3 +33,29 @@
   }
 }
 
+.contact-container {
+  padding: 0px;
+  display: flex;
+}
+
+.icon {
+  list-style-type: none;
+  margin: 0rem 0.5rem;
+  position: relative;
+
+  & svg {
+    height: 2rem;
+    width: 2rem;
+    color: var(--f-main-color);
+  }
+
+
+  &:hover {
+    svg {
+      color: var(--f-second-color);
+    }
+    .tooltip {
+      visibility: visible;
+    }
+  }
+}
