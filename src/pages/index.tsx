@@ -1,12 +1,19 @@
 import React from "react";
+import { Link } from "gatsby";
 import Icon from "@mdi/react";
-import { mdiGithub, mdiLinkedin, mdiEmail } from "@mdi/js";
+import { mdiGithub, mdiLinkedin, mdiEmail, mdiPost } from "@mdi/js";
 import Tooltip from "../components/Tooltip";
-import * as styles from "./styles.module.scss";
+import * as styles from "./index.module.scss";
+import {Helmet} from "react-helmet";
 
 const Home: React.FC = () => (
   <main className={styles.container}>
-    <img src="https://picsum.photos/1000/1000" alt="profile photo" className={styles.profileImage} />
+    <Helmet>
+      <title>Juan Gama</title>
+    </Helmet>
+    <picture>
+      <img src="https://picsum.photos/1000/1000" alt="profile photo" className={styles.profileImage} />
+    </picture>
     <h1 className={styles.inverted}>
       <span>Juan Carlos&nbsp;</span>
       <span>Gama Roa</span>
@@ -16,7 +23,7 @@ const Home: React.FC = () => (
       <li className={styles.icon}>
         <Tooltip message="foollow me at github">
           <a href="https://github.com/JuanCarlosUNAL">
-            <Icon path={mdiGithub}/>
+            <Icon path={mdiGithub} alt="github"/>
           </a>
         </Tooltip>
       </li>
@@ -32,6 +39,13 @@ const Home: React.FC = () => (
           <a href="mailto://juan19932carlos@gmail.com">
             <Icon path={mdiEmail}/>
           </a>
+        </Tooltip>
+      </li>
+      <li className={styles.icon}>
+        <Tooltip message="What I Learned this week">
+          <Link to="/wltw">
+            <Icon path={mdiPost}/>
+          </Link>
         </Tooltip>
       </li>
     </ul> 

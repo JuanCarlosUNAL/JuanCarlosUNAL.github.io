@@ -2,14 +2,15 @@
   --bg-color: #f5f0f0;
   --bg-tooltip: #151515;
   --f-tooltip: #f5f0f0;
-  --f-main-color: black;
-  --f-second-color: #FF893A;
+  --f-main-color: #151515;
+  --f-second-color: #422FBD;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-color: #151515;
     --f-main-color: #f5f0f0;
+    --f-second-color: #FF893A;
     --bg-tooltip: #f5f0f0;
     --f-tooltip: #151515;
   }
@@ -18,5 +19,6 @@
 body {
   margin: 0px;
   color: var(--f-main-color);
+  background-color: var(--bg-color);
 }
 
