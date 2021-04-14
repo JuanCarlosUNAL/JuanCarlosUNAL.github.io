@@ -9,22 +9,33 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-plugin-react-intl",
       options: {
-        name: `src`,
-        path: `${__dirname}/src/`,
+        path: `${__dirname}/src/i18n`,
+        languages: ["en", "es"],
+        defaultLanguage: "en",
+        redirect: true,
+        redirectDefaultLanguageToRoot: false,
+        ignoredPaths: [],
       },
     },
     {
-      resolve: `gatsby-plugin-mdx`,
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "src",
+        path: `${__dirname}/src`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-mdx",
       options: {
         extensions: ['.md', '.mdx'],
       },
     },
     {
-      resolve: `gatsby-plugin-graphql-codegen`,
+      resolve: "gatsby-plugin-graphql-codegen",
       options: {
-        fileName: `./gatsby-graphql.ts`,
+        fileName: "./gatsby-graphql.ts",
       }
     }
   ],

@@ -296,6 +296,27 @@ export type SitePage = Node & {
 
 export type SitePageContext = {
   id?: Maybe<Scalars['String']>;
+  language?: Maybe<Scalars['String']>;
+  intl?: Maybe<SitePageContextIntl>;
+};
+
+export type SitePageContextIntl = {
+  language?: Maybe<Scalars['String']>;
+  languages?: Maybe<Array<Maybe<Scalars['String']>>>;
+  messages?: Maybe<SitePageContextIntlMessages>;
+  routed?: Maybe<Scalars['Boolean']>;
+  originalPath?: Maybe<Scalars['String']>;
+  redirect?: Maybe<Scalars['Boolean']>;
+  redirectDefaultLanguageToRoot?: Maybe<Scalars['Boolean']>;
+  defaultLanguage?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextIntlMessages = {
+  home_picture_alt?: Maybe<Scalars['String']>;
+  home_github_tooltip?: Maybe<Scalars['String']>;
+  home_linkedin_tooltip?: Maybe<Scalars['String']>;
+  home_email_tooltip?: Maybe<Scalars['String']>;
+  home_blog_tooltip?: Maybe<Scalars['String']>;
 };
 
 export type MdxFrontmatter = {
@@ -401,8 +422,12 @@ export type SitePlugin = Node & {
 };
 
 export type SitePluginPluginOptions = {
-  name?: Maybe<Scalars['String']>;
   path?: Maybe<Scalars['String']>;
+  languages?: Maybe<Array<Maybe<Scalars['String']>>>;
+  defaultLanguage?: Maybe<Scalars['String']>;
+  redirect?: Maybe<Scalars['Boolean']>;
+  redirectDefaultLanguageToRoot?: Maybe<Scalars['Boolean']>;
+  name?: Maybe<Scalars['String']>;
   extensions?: Maybe<Array<Maybe<Scalars['String']>>>;
   lessBabel?: Maybe<Scalars['Boolean']>;
   mediaTypes?: Maybe<Array<Maybe<Scalars['String']>>>;
@@ -1496,6 +1521,27 @@ export type SiteSortInput = {
 
 export type SitePageContextFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
+  language?: Maybe<StringQueryOperatorInput>;
+  intl?: Maybe<SitePageContextIntlFilterInput>;
+};
+
+export type SitePageContextIntlFilterInput = {
+  language?: Maybe<StringQueryOperatorInput>;
+  languages?: Maybe<StringQueryOperatorInput>;
+  messages?: Maybe<SitePageContextIntlMessagesFilterInput>;
+  routed?: Maybe<BooleanQueryOperatorInput>;
+  originalPath?: Maybe<StringQueryOperatorInput>;
+  redirect?: Maybe<BooleanQueryOperatorInput>;
+  redirectDefaultLanguageToRoot?: Maybe<BooleanQueryOperatorInput>;
+  defaultLanguage?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextIntlMessagesFilterInput = {
+  home_picture_alt?: Maybe<StringQueryOperatorInput>;
+  home_github_tooltip?: Maybe<StringQueryOperatorInput>;
+  home_linkedin_tooltip?: Maybe<StringQueryOperatorInput>;
+  home_email_tooltip?: Maybe<StringQueryOperatorInput>;
+  home_blog_tooltip?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginFilterInput = {
@@ -1515,8 +1561,12 @@ export type SitePluginFilterInput = {
 };
 
 export type SitePluginPluginOptionsFilterInput = {
-  name?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
+  languages?: Maybe<StringQueryOperatorInput>;
+  defaultLanguage?: Maybe<StringQueryOperatorInput>;
+  redirect?: Maybe<BooleanQueryOperatorInput>;
+  redirectDefaultLanguageToRoot?: Maybe<BooleanQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
   extensions?: Maybe<StringQueryOperatorInput>;
   lessBabel?: Maybe<BooleanQueryOperatorInput>;
   mediaTypes?: Maybe<StringQueryOperatorInput>;
@@ -1603,6 +1653,19 @@ export type SitePageFieldsEnum =
   | 'matchPath'
   | 'isCreatedByStatefulCreatePages'
   | 'context___id'
+  | 'context___language'
+  | 'context___intl___language'
+  | 'context___intl___languages'
+  | 'context___intl___messages___home_picture_alt'
+  | 'context___intl___messages___home_github_tooltip'
+  | 'context___intl___messages___home_linkedin_tooltip'
+  | 'context___intl___messages___home_email_tooltip'
+  | 'context___intl___messages___home_blog_tooltip'
+  | 'context___intl___routed'
+  | 'context___intl___originalPath'
+  | 'context___intl___redirect'
+  | 'context___intl___redirectDefaultLanguageToRoot'
+  | 'context___intl___defaultLanguage'
   | 'pluginCreator___id'
   | 'pluginCreator___parent___id'
   | 'pluginCreator___parent___parent___id'
@@ -1644,8 +1707,12 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___resolve'
   | 'pluginCreator___name'
   | 'pluginCreator___version'
-  | 'pluginCreator___pluginOptions___name'
   | 'pluginCreator___pluginOptions___path'
+  | 'pluginCreator___pluginOptions___languages'
+  | 'pluginCreator___pluginOptions___defaultLanguage'
+  | 'pluginCreator___pluginOptions___redirect'
+  | 'pluginCreator___pluginOptions___redirectDefaultLanguageToRoot'
+  | 'pluginCreator___pluginOptions___name'
   | 'pluginCreator___pluginOptions___extensions'
   | 'pluginCreator___pluginOptions___lessBabel'
   | 'pluginCreator___pluginOptions___mediaTypes'
@@ -2198,8 +2265,12 @@ export type SitePluginFieldsEnum =
   | 'resolve'
   | 'name'
   | 'version'
-  | 'pluginOptions___name'
   | 'pluginOptions___path'
+  | 'pluginOptions___languages'
+  | 'pluginOptions___defaultLanguage'
+  | 'pluginOptions___redirect'
+  | 'pluginOptions___redirectDefaultLanguageToRoot'
+  | 'pluginOptions___name'
   | 'pluginOptions___extensions'
   | 'pluginOptions___lessBabel'
   | 'pluginOptions___mediaTypes'
@@ -2243,13 +2314,3 @@ export type SitePluginSortInput = {
   fields?: Maybe<Array<Maybe<SitePluginFieldsEnum>>>;
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
-
-export type GetPostsQueryVariables = Exact<{
-  id: Scalars['String'];
-}>;
-
-
-export type GetPostsQuery = { allMdx: { nodes: Array<(
-      Pick<Mdx, 'body'>
-      & { frontmatter?: Maybe<Pick<MdxFrontmatter, 'title'>> }
-    )> } };
