@@ -8,13 +8,12 @@ import Tooltip from "../components/Tooltip";
 import * as styles from "./index.module.scss";
 
 const Home: React.FC = () => {
-  const intl = React.useMemo(useIntl, []);
+  const intl = useIntl();
   return (
     <main className={styles.container}>
       <Helmet>
         <title>Juan Gama</title>
       </Helmet>
-      {JSON.stringify(intl)}
       <picture>
         <img
           src="https://picsum.photos/1000/1000"

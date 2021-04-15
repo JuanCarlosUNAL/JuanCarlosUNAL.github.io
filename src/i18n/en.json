@@ -1,7 +1,7 @@
 {
-  "home-picture-alt": "profile photo",
-  "home-github-tooltip": "follow me on github",
-  "home-linkedin-tooltip": "take a look to my linkedIn",
-  "home-email-tooltip": "send me a message",
+  "home-picture-alt": "Profile photo",
+  "home-github-tooltip": "Follow me on github",
+  "home-linkedin-tooltip": "Take a look to my linkedIn",
+  "home-email-tooltip": "Send me a message",
   "home-blog-tooltip": "What I Learned this Week"
 }

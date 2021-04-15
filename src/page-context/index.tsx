@@ -1,13 +1,17 @@
 import React from 'react';
 import { Helmet } from "react-helmet";
-import { Maybe } from '../../gatsby-graphql';
+import { Maybe, SitePageContextIntl } from '../../gatsby-graphql';
 import reducer, {initialState} from './pageDataStore';
 import { PageDataType } from './types';
 import { toggleLanguageAction } from "./actionCreators";
 
 export const PageContext = React.createContext<Maybe<PageDataType>>(null);
 
-const PageProvider: React.FC = ({ children }) => {
+interface PageProviderProps {
+  pageContext: SitePageContextIntl;
+}
+
+const PageProvider: React.FC<PageProviderProps> = ({ children, pageContext }) => {
   const [pageData, dispatch] = React.useReducer(reducer, initialState);
 
   const values = {
@@ -18,7 +22,7 @@ const PageProvider: React.FC = ({ children }) => {
   return (
     <PageContext.Provider value={values}>
       <Helmet>
-        <html lang={pageData.lang} />
+        <html lang={pageContext.language || "en"} />
       </Helmet>
       {children}
     </PageContext.Provider>
