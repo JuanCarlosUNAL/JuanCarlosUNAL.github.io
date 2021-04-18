@@ -1,8 +1,7 @@
 import React from "react";
-import { Link } from "gatsby";
 import Icon from "@mdi/react";
 import {Helmet} from "react-helmet";
-import { useIntl } from "gatsby-plugin-react-intl";
+import { Link, useIntl } from "gatsby-plugin-react-intl";
 import { mdiGithub, mdiLinkedin, mdiEmail, mdiPost } from "@mdi/js";
 import Tooltip from "../components/Tooltip";
 import * as styles from "./index.module.scss";

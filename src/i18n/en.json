@@ -3,5 +3,7 @@
   "home-github-tooltip": "Follow me on github",
   "home-linkedin-tooltip": "Take a look to my linkedIn",
   "home-email-tooltip": "Send me a message",
-  "home-blog-tooltip": "What I Learned this Week"
+  "home-blog-tooltip": "What I Learned this Week",
+  "blog-title": "What I Learned This Week",
+  "blog-sub": "Navigate thtough these post to see what I've learned"
 }

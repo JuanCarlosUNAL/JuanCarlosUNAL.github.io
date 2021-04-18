@@ -1,6 +1,7 @@
 :root {
   --bg-color: #f5f0f0;
   --bg-tooltip: #151515;
+  --bg-card: #f5f0f0;
   --f-tooltip: #f5f0f0;
   --f-main-color: #151515;
   --f-second-color: #422FBD;
@@ -9,9 +10,10 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-color: #151515;
+    --bg-tooltip: #f5f0f0;
+    --bg-card: #252525;
     --f-main-color: #f5f0f0;
     --f-second-color: #FF893A;
-    --bg-tooltip: #f5f0f0;
     --f-tooltip: #151515;
   }
 }

@@ -317,13 +317,14 @@ export type SitePageContextIntlMessages = {
   home_linkedin_tooltip?: Maybe<Scalars['String']>;
   home_email_tooltip?: Maybe<Scalars['String']>;
   home_blog_tooltip?: Maybe<Scalars['String']>;
+  blog_title?: Maybe<Scalars['String']>;
+  blog_sub?: Maybe<Scalars['String']>;
 };
 
 export type MdxFrontmatter = {
   title: Scalars['String'];
-  path?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['Date']>;
-  lang?: Maybe<Scalars['String']>;
+  img?: Maybe<Scalars['String']>;
 };
 
 
@@ -770,9 +771,8 @@ export type MdxFilterInput = {
 
 export type MdxFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
-  path?: Maybe<StringQueryOperatorInput>;
   date?: Maybe<DateQueryOperatorInput>;
-  lang?: Maybe<StringQueryOperatorInput>;
+  img?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MdxHeadingMdxFilterListInput = {
@@ -904,9 +904,8 @@ export type FileFieldsEnum =
   | 'childrenMdx___rawBody'
   | 'childrenMdx___fileAbsolutePath'
   | 'childrenMdx___frontmatter___title'
-  | 'childrenMdx___frontmatter___path'
   | 'childrenMdx___frontmatter___date'
-  | 'childrenMdx___frontmatter___lang'
+  | 'childrenMdx___frontmatter___img'
   | 'childrenMdx___slug'
   | 'childrenMdx___body'
   | 'childrenMdx___excerpt'
@@ -961,9 +960,8 @@ export type FileFieldsEnum =
   | 'childMdx___rawBody'
   | 'childMdx___fileAbsolutePath'
   | 'childMdx___frontmatter___title'
-  | 'childMdx___frontmatter___path'
   | 'childMdx___frontmatter___date'
-  | 'childMdx___frontmatter___lang'
+  | 'childMdx___frontmatter___img'
   | 'childMdx___slug'
   | 'childMdx___body'
   | 'childMdx___excerpt'
@@ -1542,6 +1540,8 @@ export type SitePageContextIntlMessagesFilterInput = {
   home_linkedin_tooltip?: Maybe<StringQueryOperatorInput>;
   home_email_tooltip?: Maybe<StringQueryOperatorInput>;
   home_blog_tooltip?: Maybe<StringQueryOperatorInput>;
+  blog_title?: Maybe<StringQueryOperatorInput>;
+  blog_sub?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginFilterInput = {
@@ -1661,6 +1661,8 @@ export type SitePageFieldsEnum =
   | 'context___intl___messages___home_linkedin_tooltip'
   | 'context___intl___messages___home_email_tooltip'
   | 'context___intl___messages___home_blog_tooltip'
+  | 'context___intl___messages___blog_title'
+  | 'context___intl___messages___blog_sub'
   | 'context___intl___routed'
   | 'context___intl___originalPath'
   | 'context___intl___redirect'
@@ -1893,9 +1895,8 @@ export type MdxFieldsEnum =
   | 'rawBody'
   | 'fileAbsolutePath'
   | 'frontmatter___title'
-  | 'frontmatter___path'
   | 'frontmatter___date'
-  | 'frontmatter___lang'
+  | 'frontmatter___img'
   | 'slug'
   | 'body'
   | 'excerpt'
@@ -2314,3 +2315,21 @@ export type SitePluginSortInput = {
   fields?: Maybe<Array<Maybe<SitePluginFieldsEnum>>>;
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
+
+export type GetPostsQueryVariables = Exact<{
+  id: Scalars['String'];
+}>;
+
+
+export type GetPostsQuery = { allMdx: { nodes: Array<(
+      Pick<Mdx, 'body'>
+      & { frontmatter?: Maybe<Pick<MdxFrontmatter, 'title'>> }
+    )> } };
+
+export type GetAllPostsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAllPostsQuery = { allMdx: { nodes: Array<(
+      Pick<Mdx, 'id' | 'slug' | 'excerpt'>
+      & { frontmatter?: Maybe<Pick<MdxFrontmatter, 'title' | 'date'>> }
+    )> } };
