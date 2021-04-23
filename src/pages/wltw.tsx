@@ -5,6 +5,7 @@ import { GetAllPostsQuery } from "../../gatsby-graphql";
 import {useIntl} from 'react-intl';
 import * as styles from "./wltw.module.scss";
 import {Link} from 'gatsby-plugin-react-intl';
+import Card from '../components/Card';
 
 export type Unpacked<T> = T extends (infer U)[] ? U : {}
 
@@ -18,12 +19,12 @@ const PostEntry: React.FC<PostEntryProps> = ({id, frontmatter, excerpt, slug}) =
   const name = slug?.split('/')[2] || "";
   const link = `/wltw/${name}`;
   return (
-    <Link to={link}>
-      <article key={id} className={styles.entry}>
+    <Link key={id} className={styles.link} to={link}>
+      <Card className={styles.entryContainer}>
         <h2>{frontmatter?.title} </h2>
         <p>{excerpt}</p>
         <span>{frontmatter?.date}</span>
-      </article>
+      </Card>
     </Link>
   )
 }
@@ -38,7 +39,7 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ data }) => {
     <main className={styles.container}>
       <h1 className={styles.title}>{intl.messages['blog-title']}</h1>
       <span className={styles.subtitle}>{intl.messages['blog-sub']}</span>
-      <section>
+      <section className={styles.entriesContainer}>
         {entries.map(PostEntry)}
       </section>
     </main>

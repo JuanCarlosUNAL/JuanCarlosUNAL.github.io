@@ -1,0 +1,20 @@
+.container {
+  background-color: var(--bg-card);
+  box-shadow: 0rem 0rem 1rem rgba(163, 171, 180, 0.3);
+  box-sizing: border-box;
+  color: var(--f-main-color);
+  padding: 1rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  
+  &:hover {
+    box-shadow: 0rem 0rem 1rem var(--f-second-color);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .container {
+    box-shadow: 0rem 0rem 1rem rgba(0, 0, 0, 0.2);
+  }
+}
+
