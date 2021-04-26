@@ -1,9 +1,8 @@
-import { useIntl } from "gatsby-plugin-react-intl";
+import { useIntl } from "gatsby-plugin-react-intl"
 
 const useCurrentLang = () => {
-  const intl = useIntl();
-  return intl.locale;
+  const intl = useIntl()
+  return intl.locale
 }
 
-export default useCurrentLang;
-
+export default useCurrentLang

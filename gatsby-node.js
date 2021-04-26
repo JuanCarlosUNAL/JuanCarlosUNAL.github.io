@@ -1,7 +1,7 @@
-const path = require('path');
+const path = require("path")
 
-exports.createPages = async ({graphql, actions}) => {
-  const { createPage } = actions;
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
   const result = await graphql(`
     query {
       allMdx {
@@ -11,10 +11,10 @@ exports.createPages = async ({graphql, actions}) => {
         }
       }
     }
-  `);
+  `)
 
   for (const { slug, id } of result.data.allMdx.nodes) {
-    const [_, lang, name] = slug.split('/')
+    const [_, lang, name] = slug.split("/")
     createPage({
       path: `wltw/${name}`,
       component: path.resolve(`./src/blog-entries/blog-template.tsx`),
@@ -23,7 +23,4 @@ exports.createPages = async ({graphql, actions}) => {
       },
     })
   }
-
 }
-
-

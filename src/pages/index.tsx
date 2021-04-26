@@ -1,13 +1,13 @@
-import React from "react";
-import Icon from "@mdi/react";
-import {Helmet} from "react-helmet";
-import { Link, useIntl } from "gatsby-plugin-react-intl";
-import { mdiGithub, mdiLinkedin, mdiEmail, mdiPost } from "@mdi/js";
-import Tooltip from "../components/Tooltip";
-import * as styles from "./index.module.scss";
+import React from "react"
+import Icon from "@mdi/react"
+import { Helmet } from "react-helmet"
+import { Link, useIntl } from "gatsby-plugin-react-intl"
+import { mdiGithub, mdiLinkedin, mdiEmail, mdiPost } from "@mdi/js"
+import Tooltip from "../components/Tooltip"
+import * as styles from "./index.module.scss"
 
 const Home: React.FC = () => {
-  const intl = useIntl();
+  const intl = useIntl()
   return (
     <main className={styles.container}>
       <Helmet>
@@ -16,7 +16,7 @@ const Home: React.FC = () => {
       <picture>
         <img
           src="https://picsum.photos/1000/1000"
-          alt={intl.formatMessage({id: "home-picture-alt"})}
+          alt={intl.formatMessage({ id: "home-picture-alt" })}
           className={styles.profileImage}
         />
       </picture>
@@ -24,40 +24,41 @@ const Home: React.FC = () => {
         <span>Juan Carlos&nbsp;</span>
         <span>Gama Roa</span>
       </h1>
-  
+
       <ul className={styles.contactContainer}>
         <li className={styles.icon}>
-          <Tooltip message={intl.formatMessage({id: "home-github-tooltip"})}>
+          <Tooltip message={intl.formatMessage({ id: "home-github-tooltip" })}>
             <a href="https://github.com/JuanCarlosUNAL">
               <Icon path={mdiGithub} />
             </a>
           </Tooltip>
         </li>
         <li className={styles.icon}>
-          <Tooltip message={intl.formatMessage({id: "home-linkedin-tooltip"})}>
+          <Tooltip
+            message={intl.formatMessage({ id: "home-linkedin-tooltip" })}
+          >
             <a href="https://www.linkedin.com/in/juancarlosgama">
-              <Icon path={mdiLinkedin}/>
+              <Icon path={mdiLinkedin} />
             </a>
           </Tooltip>
         </li>
         <li className={styles.icon}>
-          <Tooltip message={intl.formatMessage({id: "home-email-tooltip"})}>
+          <Tooltip message={intl.formatMessage({ id: "home-email-tooltip" })}>
             <a href="mailto://juan19932carlos@gmail.com">
-              <Icon path={mdiEmail}/>
+              <Icon path={mdiEmail} />
             </a>
           </Tooltip>
         </li>
         <li className={styles.icon}>
-          <Tooltip message={intl.formatMessage({id: "home-blog-tooltip"})}>
+          <Tooltip message={intl.formatMessage({ id: "home-blog-tooltip" })}>
             <Link to="/wltw">
-              <Icon path={mdiPost}/>
+              <Icon path={mdiPost} />
             </Link>
           </Tooltip>
         </li>
-      </ul> 
+      </ul>
     </main>
   )
-};
+}
 
-export default Home;
-
+export default Home

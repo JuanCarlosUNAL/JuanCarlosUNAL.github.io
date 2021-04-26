@@ -6,8 +6,8 @@
 
 module.exports = {
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sass",
     {
       resolve: "gatsby-plugin-react-intl",
       options: {
@@ -29,17 +29,17 @@ module.exports = {
     {
       resolve: "gatsby-plugin-mdx",
       options: {
-        extensions: ['.md', '.mdx'],
+        extensions: [".md", ".mdx"],
       },
     },
     {
       resolve: "gatsby-plugin-graphql-codegen",
       options: {
         fileName: "./gatsby-graphql.ts",
-      }
-    }
+      },
+    },
   ],
   siteMetadata: {
     title: "Juan Carlos Gama Roa",
-  }
+  },
 }

@@ -2,17 +2,17 @@ import React from "react"
 import { graphql } from "gatsby"
 import { GetPostsQuery } from "../../gatsby-graphql"
 
-import * as styles from './blog-styles.module.scss';
-import {MDXRenderer} from "gatsby-plugin-mdx";
+import * as styles from "./blog.module.scss"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 interface BlogTemplateProps {
-  data: GetPostsQuery;
+  data: GetPostsQuery
 }
 
 const BlogTemplate: React.FC<BlogTemplateProps> = ({ data }) => {
-  const [post] = data.allMdx.nodes;
+  const [post] = data.allMdx.nodes
   return (
-    <div>
+    <div className={styles.blogContent}>
       <h1>{post.frontmatter?.title}</h1>
       <MDXRenderer>{post.body}</MDXRenderer>
     </div>
@@ -21,7 +21,7 @@ const BlogTemplate: React.FC<BlogTemplateProps> = ({ data }) => {
 
 export const query = graphql`
   query getPosts($id: String!) {
-    allMdx(filter: {id: {eq: $id}}) {
+    allMdx(filter: { id: { eq: $id } }) {
       nodes {
         body
         frontmatter {
@@ -32,5 +32,4 @@ export const query = graphql`
   }
 `
 
-export default BlogTemplate;
-
+export default BlogTemplate
