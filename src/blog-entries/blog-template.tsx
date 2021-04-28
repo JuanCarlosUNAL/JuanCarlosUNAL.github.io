@@ -20,9 +20,15 @@ const BlogTemplate: React.FC<BlogTemplateProps> = ({ data }) => {
 }
 
 export const query = graphql`
-  query getPosts($id: String!) {
-    allMdx(filter: { id: { eq: $id } }) {
+  query getPosts($pattern: String!, $language: String = "en") {
+    allMdx(
+      filter: {
+        slug: { regex: $pattern }
+        frontmatter: { lang: { eq: $language } }
+      }
+    ) {
       nodes {
+        slug
         body
         frontmatter {
           title

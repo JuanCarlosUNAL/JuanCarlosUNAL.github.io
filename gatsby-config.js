@@ -16,7 +16,7 @@ module.exports = {
         defaultLanguage: "en",
         redirect: true,
         redirectDefaultLanguageToRoot: false,
-        ignoredPaths: [],
+        ignoredPaths: ["/wltw/.+/"],
       },
     },
     {
