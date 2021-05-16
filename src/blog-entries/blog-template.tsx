@@ -14,6 +14,7 @@ const BlogTemplate: React.FC<BlogTemplateProps> = ({ data }) => {
   return (
     <div className={styles.blogContent}>
       <h1>{post.frontmatter?.title}</h1>
+      <hr />
       <MDXRenderer>{post.body}</MDXRenderer>
     </div>
   )

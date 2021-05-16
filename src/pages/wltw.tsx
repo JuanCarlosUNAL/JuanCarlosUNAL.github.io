@@ -44,7 +44,9 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ data }) => {
   return (
     <main className={styles.container}>
       <h1 className={styles.title}>{intl.messages["blog-title"]}</h1>
-      <span className={styles.subtitle}>{intl.messages["blog-sub"]}</span>
+      <div>
+        <span className={styles.subtitle}>{intl.messages["blog-sub"]}</span>
+      </div>
       <section className={styles.entriesContainer}>
         {entries.map(PostEntry)}
       </section>
@@ -54,10 +56,11 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ data }) => {
 
 export const query = graphql`
   query getAllPosts {
-    allMdx {
+    allMdx(sort: { fields: frontmatter___created, order: DESC }) {
       nodes {
         frontmatter {
           title
+          tags
           created(formatString: "MMM DD, YYYY")
         }
         slug

@@ -8,6 +8,8 @@ module.exports = {
   plugins: [
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sass",
+    `gatsby-plugin-sharp`,
+    `gatsby-remark-images`,
     {
       resolve: "gatsby-plugin-react-intl",
       options: {
@@ -30,6 +32,14 @@ module.exports = {
       resolve: "gatsby-plugin-mdx",
       options: {
         extensions: [".md", ".mdx"],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+            },
+          },
+        ],
       },
     },
     {
