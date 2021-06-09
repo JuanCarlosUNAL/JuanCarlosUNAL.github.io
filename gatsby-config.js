@@ -6,10 +6,13 @@
 
 module.exports = {
   plugins: [
+    "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
+    "gatsby-transformer-sharp",
     "gatsby-plugin-sass",
     `gatsby-plugin-sharp`,
     `gatsby-remark-images`,
+    "gatsby-plugin-image",
     {
       resolve: "gatsby-plugin-react-intl",
       options: {
