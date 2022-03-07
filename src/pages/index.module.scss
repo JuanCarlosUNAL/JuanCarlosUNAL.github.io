@@ -25,6 +25,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  h1 {
+    text-align: center;
+  }
   
   span:nth-child(odd) {
     color: var(--f-main-color);
